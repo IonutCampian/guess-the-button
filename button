@@ -1,0 +1,58 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+public class ramaMea extends JFrame implements ActionListener {
+    JButton primulButon;
+    JButton alDoileaButon;
+    JButton alTreileaButon;
+    JButton[] buttons = new JButton[3];
+    ramaMea() {
+        primulButon = new JButton(String.valueOf(1));
+        primulButon.setBounds(200, 100, 100, 100);
+        primulButon.setText("Button 1");
+        primulButon.addActionListener(this);
+        alDoileaButon = new JButton();
+        alDoileaButon.setBounds(500, 100, 100, 100);
+        alDoileaButon.setText("Button 2");
+        alDoileaButon.addActionListener(this);
+        alTreileaButon = new JButton();
+        alTreileaButon.setBounds(800, 100, 100, 100);
+        alTreileaButon.setText("button 3");
+        alTreileaButon.addActionListener(this);
+        JButton[] buttons = new JButton[3];
+        buttons[0] = primulButon;
+        buttons[1] = alDoileaButon;
+        buttons[2] = alTreileaButon;
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(1000, 1000);
+        this.setLayout(null);
+        this.setVisible(true);
+        this.add(primulButon);
+        this.add(alDoileaButon);
+        this.add(alTreileaButon);
+
+    }
+    public final int getRandomButton(){
+        Random aleator = new Random();
+        int celBun = aleator.nextInt(3);
+        return celBun;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+            if (e.getSource() == primulButon &&  getRandomButton() == 0) {
+                System.out.println("winner");
+            }
+
+            else if (e.getSource() == alDoileaButon && getRandomButton() == 1) {
+                System.out.println("winner");
+            }
+            else if (e.getSource() == alTreileaButon && getRandomButton() == 2) {
+                System.out.println("winner");
+            }
+        }
+
+    }
